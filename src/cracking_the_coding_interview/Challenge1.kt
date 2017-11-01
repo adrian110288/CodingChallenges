@@ -17,14 +17,23 @@ import java.util.*
 
 fun main(args: Array<String>) {
 
-    val rotation = 4
+    val input = Scanner(System.`in`)
 
-    val inputArray: IntArray = intArrayOf(1, 2, 3, 4, 5)
-    val outputArray = IntArray(inputArray.size)
+    val arraySize = input.nextInt()
+    val rotation = input.nextInt()
+
+    val inputArray = IntArray(arraySize) { input.nextInt() }
+    val outputArray = IntArray(arraySize)
 
     inputArray.forEachIndexed { index, i ->
-        outputArray[(index - rotation + inputArray.size) % inputArray.size] = i
+        outputArray[(index - rotation + arraySize) % arraySize] = i
     }
 
-    println(Arrays.toString(outputArray))
+    outputArray.forEach {
+        print(it)
+        print(" ")
+    }
+
+
+//    println(Arrays.toString(outputArray))
 }
